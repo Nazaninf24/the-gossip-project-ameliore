@@ -1,4 +1,5 @@
-# THP, The Gossip Project, Application version amélioré
+# THP 
+## The Gossip Project, Application version amélioré
 
 Possibilité de creer des potins.
 
