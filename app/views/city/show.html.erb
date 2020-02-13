@@ -1,0 +1,20 @@
+<br>
+<br>
+<center>
+<div class="body">
+	<h3>Bienvenue sur la page de la ville de <%=@city.name%></h3>
+	<br>
+	<%@user.each do |u|%> <%@user_gossips.reverse_each do |gossip|%>
+	<div class="card border-secondary mb-3" style="width: 18rem; max-width: 20rem;margin: 3px;">
+
+		<h5 class="card-header">Auteur : <%=u.first_name%></h5>
+		<div class="card-body text-dark">
+			
+			<h6 class="card-subtitle mb-2 text-muted">Titre : <%=gossip.title%></h6>
+			<p class="card-text text-muted">Contenu : <%=gossip.content%></p>
+			<center><a href="<%=gossip_path(gossip.id)%>" class="card-link btn btn-primary btn-sm">Gossip Link</a></center>
+		</div>
+	</div>
+	<%end%><%end%>
+</div>
+</center>

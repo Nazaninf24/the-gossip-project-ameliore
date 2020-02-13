@@ -1,0 +1,46 @@
+<link rel="stylesheet" type="text/css" href="../assets/stylesheets/index.css">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+
+<% if flash.now[:alert] != nil %>
+<div class='alert alert-success mt-4'>
+	<%= flash[:alert] %>
+</div>
+<% end %>
+
+<center>
+<div class="jumbotron jumbotron-fluid">
+	<h4 class="display-4 text-white">Hello, <%if current_user != nil%><%=current_user.first_name%><%else%><%=nil%><%end%></h4>
+	<p class="display-4 text-white">Welcome to The Gossip Project !</p>
+	<p class="lead text-white">This is a site to create Gossips and share it with every body !</p>
+	<a class="btn btn-primary btn-lg" href="<%=new_gossip_path%>" role="button">Create Gossip</a>
+</div>
+</center>
+
+<br>
+<div class="body">
+	<center><h4 id="card">Voici tout les potins en base :</h4>
+		<br>
+		<%if current_user != nil %>
+		<p><%Gossip.all.reverse_each do |g|%>
+
+			<div class="card border-secondary mb-3" style="width: 18rem; max-width: 20rem;margin: 3px;">
+
+				<h5 class="card-header">Auteur : <%=g.user.first_name%></h5>
+				<div class="card-body text-dark">
+					<h6 class="card-subtitle mb-2 text-muted">Titre : <%=g.title%></h6>
+					<p class="card-text text-muted">Contenu : <%=g.content%></p>
+					<center><button type="button" class="btn btn-primary btn-sm"><a class="text-white" href="<%=gossip_path(g.id)%>">Gossip Link
+					</button></a></center>
+				</div>
+			</div>
+			<%end%>
+			<%else%>
+			<div class='alert alert-danger mt-4'>
+				<center><h4> Merci de vous connecter pour voir les potins</h4></center>
+			</div>
+			<%end%>
+		</p>
+	</center>
+</div>

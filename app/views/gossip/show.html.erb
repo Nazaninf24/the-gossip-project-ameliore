@@ -1,0 +1,36 @@
+<br>
+<br>
+<center>
+<% if flash[:alert] != nil %>
+	<div class='alert alert-success mt-4'>
+		<%= flash[:alert] %>
+	</div>
+	<% end %>
+
+	<h3>Voici le gossip de : <%=@gossip.user.first_name%></h3> 
+	<br>
+	<div style="margin-top: 5px;"><%=link_to "Lien vers l'auteur", user_path(@gossip.user_id), :class => "btn btn-secondary btn-sm"%></div>
+	<br>
+	<p>Sont titre : <%=@gossip.title%></p>
+	<p>Son contenu : <%=@gossip.content%></p>
+	<p>Sa ville : <%=@gossip.user.city.name%></p>
+	<p>Date de création : <%=@gossip.created_at%></p>
+	<p></p>
+	   <%if current_user != @gossip.user%>
+    <%nil%>
+	<%else%>
+
+	<div class="container text-center">
+	  <div class="d-flex justify-content-center">
+	<div style="margin-top: 5px; "><%=link_to "Editer ce potin", edit_gossip_path(@gossip), class:"btn btn-primary btn-sm mr-1"%>
+	</div>
+    <div style="margin-top: 5px;"><%= link_to "Supprimer ce potin", @gossip_destroy, :method => :delete, data: {confirm: "Are you sure ?"}, class:"btn btn-primary btn-sm"%>
+	</div>
+	</div>
+	</div>
+	<br>
+	<div class="container text-center">
+    <div style="margin-top: 5px;"><%= link_to "Retour Accueil", root_path, :class => "btn btn-secondary btn-sm"%></div>
+	<%end%>	
+	</div>	
+<%=render 'comments/comment'%>

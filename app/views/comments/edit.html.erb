@@ -1,0 +1,13 @@
+<br>
+<br>
+<center>
+<h3>Modifiez votre commentaire ici :</h3>
+<div class="my-form", style= "padding:80px;">
+<%= form_for([@gossip, @comment]) do |f| %>
+<div class="form-group my-title">
+    <%= f.text_area :content, class: "form-control" %>
+    <br/>
+    <%= submit_tag "Update", class: "btn btn-primary"%>
+</div>
+<%end%>
+</div>

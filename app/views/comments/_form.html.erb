@@ -1,0 +1,7 @@
+<%= form_for([@gossip, @gossip.comments.build]) do |f| %>
+<div class="form-group my-title">
+	<h6>Comment this gossip :</h6>
+    <%= f.text_area 'content', class: "form-control",style: 'width:20%;' %>
+</div>
+<%= submit_tag "Submit a comment", class: "btn btn-primary" %>
+<%end%>

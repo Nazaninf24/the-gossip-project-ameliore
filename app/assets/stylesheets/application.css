@@ -1,0 +1,66 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+#num {
+	text-decoration: underline;
+}
+
+blockquote:before {
+		font-family: "Times New Roman", arial;
+		color: #444;
+		content: open-quote;
+		float: left;
+		margin-right: .2em;
+		font-size: 2.2em;
+		font-weight: bold;
+		margin-top: 0;
+		margin-right: .2rem;
+		width: 1.2rem;
+
+}
+blockquote:after {
+	  
+    display: block;
+    clear: both;
+}
+blockquote span {
+	float: left;
+    margin-left: 1rem;
+    padding-top: 1rem;
+}
+a {
+	text-decoration: none;
+}
+body {
+	margin: 0px 10px 0px 0px;
+}
+
+div.card{ 
+	display: inline-block;
+	
+}
+div.card {
+	margin-bottom: 15px;
+}
+div.jumbotron {
+	padding-left: 100px;
+	padding-bottom: 100px; 
+	
+}
+
+
+
+

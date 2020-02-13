@@ -1,0 +1,16 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.box li {
+	border: 1px solid gray;
+}
+ .box{
+ 		
+   	height: 400px;
+    min-height: 0px;
+    overflow: scroll;
+}
+.box li {
+	height: 110px;
+	overflow: scroll;
+}

@@ -1,0 +1,43 @@
+<body class="text-center" >
+
+
+  <% if flash.now[:alert] != nil %>
+<div class='alert alert-success mt-4'>
+  <%= flash[:alert] %>
+</div>
+<% end %>
+
+
+<br>
+
+<% if flash[:danger] != nil %>
+  <div class='alert alert-danger mt-4' style="width: 30%">
+    <%= flash[:danger] %>
+  </div>
+  <% end %>
+
+ <center><%= form_tag url_for(action: 'create'), method: "post", style: "width: 50%;" do %>
+  <%=image_tag("anonymous.png", size:"72x72")%>
+  <fieldset>
+    <legend>Please Log In</legend>
+    <br>
+    <div style="width: 50%;">
+      
+      <%= text_field_tag :email, params[:email], class: "form-control", placeholder: 'Email' %>
+    </div>
+    <br>
+    <div style="width: 50%;">
+      
+      <%= password_field_tag :password, params[:password], class: "form-control", placeholder: 'Password' %>
+    </div>
+    <br>
+    <div style="width: 50%;">
+      <%= submit_tag "Login", class: "btn btn-lg btn-primary btn-block" %>
+    </div>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
+  </fieldset>
+<% end %>
+</center>
+<p>Pas encore inscrit ? <%= link_to "Inscris-toi ici", new_user_path %></p>
+
+</body>

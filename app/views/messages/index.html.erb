@@ -1,0 +1,33 @@
+<br>
+<div style="margin-left: 20px;">
+<ul class="box">
+  <% @messages.each do |message| %>
+    <% if message.body %>
+    <%if message.user == current_user%>
+      <li style=" width: 40%; margin-left:300px;margin-bottom: 20px; ">
+       <h5 style="margin-left: 10px; margin-top: 5px; justify-content: end"><%=image_tag("avatars-femmes.png", size:"42x42")%> <%= message.user.first_name %></h5>
+        <p style="margin-left: 10px;"><%= message.body %><br>
+        <small style="color: #959ca6;"><%= message.message_time%></small></p>
+      </li>
+
+      <%else%>
+      <li style=" width: 40%; margin-bottom: 20px; ">
+        <h5 style="margin-left: 10px;margin-top: 5px;"><%=image_tag("avatar.png", size:"42x42")%> <%= message.user.first_name %></h5>
+        <p style="margin-left: 10px;"><%= message.body %><br>
+        <small style="color: #959ca6;"><%= message.message_time%></small></p>
+      </li>
+    <% end %>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= form_for [@conversation, @message] do |f| %>
+  <div class="field" >
+    <%= f.text_area :body, placeholder: "Your message", style: "width:67%;" %>
+ </div>
+
+  <%= f.submit "Send", class: "btn btn-primary" %>
+
+<% end %>
+<br>
+</div>
